@@ -5,7 +5,9 @@ function docker --description 'Exports boot 2 docker env'
     command boot2docker up
   end
 
-  eval (boot2docker shellinit)
+  for i in (boot2docker shellinit)
+    eval $i
+  end
 
   command docker $argv
 end
